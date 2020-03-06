@@ -1,21 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Lab 4</title>
-    <link src="./style.css" type="text/stylesheet" />
-</head>
-<body>
-    <div>
-        <h1 class="header">Mihir Gokhale's Lab 4</h1>
+  <head>
+    <title>Prof A's Demo Page</title>
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="wrapper">
+        <div class="header">Prof A's Demo Page</div>
+        <button class="button" onclick="clickMe()">
+          Click me to make a change
+        </button>
+        <div class="content">
+          <p>
+            Retro fam narwhal hoodie meggings viral bushwick yr chartreuse.
+            Chartreuse seitan banh mi selfies, woke ennui venmo craft beer. Air
+            plant tumeric retro DIY iPhone poutine. +1 gastropub chillwave,
+            cronut glossier pork belly tacos poke next level fanny pack vegan
+            jianbing lo-fi.
+          </p>
+        </div>
+        <div class="footer"></div>
+      </div>
     </div>
-    <div class="content">
-        <p class="p1">My name has 12 characters</p>
-        <p class="p2"></p> 
-    </div>
+    
     <script>
+      function clickMe() {
+        const content = document.querySelector(".content");
+        content.innerHTML = "Hello world";
+        
+        let name = "Mihir Gokhale";
+
+        //Initialize names
+        let firstName = name.substring(0,5);
+        let lastName = name.substring(6,12);
+        let thirdLet = name[2];
+
+        let fullLength = firstName.length + lastName.length + 1;
+        let lastThree = name.slice(10,13);
+
+        //Paragraph 1, number 6
+        var sel1 = document.querySelector(".content");
+        var newP1 = document.createElement("p");
+        newP1.className = "p1";
+        newP1.innerHTML = "My name has " + fullLength + " characters";
+        sel1.appendChild(newP1);
+
+        //Paragraph 2, number 7 & 8
+        var sel2 = document.querySelector(".content");
+        var newP2 = document.createElement("p");
+        newP2.className = "p2";
+        newP2.innerHTML = "The third character in my name is " + thirdLet.toUpperCase();
+        sel2.appendChild(newP2);
+        sel2 = document.querySelector(".content");
+        newP2 = document.createElement("p");
+        newP2.className = "p2";
+        newP2.innerHTML = lastThree;
+        sel2.appendChild(newP2);
+
+        const header = document.querySelector(".header");
+        header.innerHTML = "Mihir's Lab 4 "+ fullLength;
+      }
     </script>
-</body>
+  </body>
 </html>
+
+
