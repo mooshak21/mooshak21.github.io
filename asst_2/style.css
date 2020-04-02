@@ -14,6 +14,12 @@ body {
   width: 640px;
   height: 480px;
 }
+.displayed-img{
+  position: relative;
+  display: block;
+  width: 640px;
+  height: 480px;
+}
 
 .overlay {
   position: absolute;
