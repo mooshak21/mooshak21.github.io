@@ -14,6 +14,12 @@
       integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
       crossorigin=""
     ></script>
+    <style>
+      #map {
+        width: 640px;
+        height: 480px;
+      }
+    </style>
   </head>
 
   <body>
@@ -21,13 +27,46 @@
       <div class="wrapper">
         <div class="header">Frontend Libraries: Maps Lab</div>
         <div class="content">
-          When your lab is done, this should be replaced with a stylish map.
+          <div id="map"></div>
         </div>
         <div class="footer">Make some markers work!</div>
       </div>
     </div>
     <script>
-        /* Your lab code can go here, or in an external file you include */
+      const mymap = L.map("map").setView([38.9869, -76.9426], 14);
+      L.tileLayer(
+        "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
+        {
+          attribution:
+            'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+          maxZoom: 18,
+          id: "mapbox/streets-v11",
+          tileSize: 512,
+          zoomOffset: -1,
+          accessToken:
+            "pk.eyJ1IjoibW9vc2hhazIxIiwiYSI6ImNrOG5yYmlpMjExcm8zanBndjdqaHJ4Zm4ifQ._SvQdft0B57l8Pi5MbAuig",
+        }
+      ).addTo(mymap);
+      const eppley = L.marker([38.9936, -76.9452]).addTo(mymap);
+      estr = "<b>Eppley Recreation Center</b>";
+      eppley.bindPopup(estr);
+
+      const arr = [
+        38.991425,
+        -76.93367,
+        38.984828,
+        -76.948226,
+        38.991042,
+        -76.937276,
+      ];
+
+      const str0 = "<b>Pho D'Lite</b>";
+      const str2 = "<b>Chick-fil-A</b>";
+      const str4 = "<b>UMCP-Breakpoint Cafe (Iribe Building)</b>";
+
+      L.marker([arr[0], arr[1]]).addTo(mymap).bindPopup(str0);
+      L.marker([arr[2], arr[3]]).addTo(mymap).bindPopup(str2);
+      L.marker([arr[4], arr[5]]).addTo(mymap).bindPopup(str4);
     </script>
   </body>
 </html>
