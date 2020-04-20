@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Replace Me With Your Lab Page</title>
+  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="./styles.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="wrapper">
+      <div class="header">Replace Me With Your Lab Page</div>
+      <div class="content"></div>
+      <div class="footer"></div>
+    </div>
+  </div>
+  <script>
+    fetch('/api') // Rather than fetching from PG County, we're going to fetch from our own server.
+      .then((res) => res.json())
+      // eslint-disable-next-line no-unused-vars
+      .then((res) => {
+        // Here's where your chart code should go.
+        // eslint-disable-next-line no-undef
+        // eslint-disable-next-line no-undef
+        console.log(res.data);
+        // eslint-disable-next-line no-undef
+        const chart = new CanvasJS.Chart('chartContainer', {
+          animationEnabled: true,
+          theme: 'dark1',
+          title: {
+            text: "Let's Find Somewhere to Eat",
+            fontSize: 40
+          },
+          axisX: {
+            labelBackgroundColor: 'dark1',
+            labelFontColor: 'white',
+            labelFontSize: 16,
+            margin: 10,
+            interval: 1
+          },
+          axisY: {
+            interlacedColor: 'rgba(211,211,211,.2)',
+            gridColor: 'rgba(211,211,211,.2)',
+            scaleBreaks: {
+              type: 'zigzag',
+              customBreaks: [
+                {
+                  startValue: 10,
+                  endValue: 25
+                },
+                {
+                  startValue: 70,
+                  endValue: 110
+                },
+                {
+                  startValue: 160,
+                  endValue: 200
+                }
+              ]
+            }
+          },
+          data: [
+            {
+              type: 'bar',
+              // eslint-disable-next-line no-undef
+              dataPoints: results
+            }
+          ]
+        });
+        chart.render();
+      });
+  </script>
+</body>
+
+</html>
